@@ -9,12 +9,12 @@ type Message struct {
 
 // User message
 type User struct {
-	Identifier	string	`json:"identifier"`
-	Name   		string	`json:"name"`
-	Age 		string	`json:"age"`
+	Identifier string `json:"identifier"`
+	Name       string `json:"name"`
+	Age        string `json:"age"`
 }
 
 // Operate message
-type Operate struct{
+type Operate struct {
 	Message string `json:"message"`
 }

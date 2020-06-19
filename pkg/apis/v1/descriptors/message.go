@@ -6,7 +6,6 @@ import (
 	def "github.com/caicloud/nirvana/definition"
 )
 
-
 func init() {
 	register([]def.Descriptor{{
 		Path:        "/allUsers",
@@ -15,10 +14,10 @@ func init() {
 		Path:        "/oneUser",
 		Definitions: []def.Definition{getUser},
 	},
-	{
-		Path:        "/addUser",
-		Definitions: []def.Definition{addUser},
-	},
+		{
+			Path:        "/addUser",
+			Definitions: []def.Definition{addUser},
+		},
 		{
 			Path:        "/deleteUser",
 			Definitions: []def.Definition{deleteUser},
@@ -29,44 +28,42 @@ func init() {
 		},
 	}...)
 
-
 }
 
 var addUser = def.Definition{
-	Method: 	def.Create,
-	Summary:	"Add one user",
+	Method:      def.Create,
+	Summary:     "Add one user",
 	Description: "Add a user with parameters 'identifier','name' and 'age'",
 	Function:    handlers.AddUser,
 	Parameters: []def.Parameter{
 		{
 			Source:      def.Query,
 			Name:        "Identifier",
-			Default: 	 "Unknown",
+			Default:     "Unknown",
 			Description: "Identifier of the user",
 		},
 		{
 			Source:      def.Query,
 			Name:        "Name",
-			Default: 	 "Anonymity",
+			Default:     "Anonymity",
 			Description: "Name of the user",
 		},
 		{
 			Source:      def.Query,
 			Name:        "Age",
-			Default: 	 "20",
+			Default:     "20",
 			Description: "Age of the user",
 		},
 	},
 	Results: def.DataErrorResults("Add a user"),
 }
 
-
 var listUsers = def.Definition{
 	Method:      def.List,
 	Summary:     "List all the users",
 	Description: "Query a specified number of messages and returns an array",
 	Function:    handlers.AllUsers,
-	Results: def.DataErrorResults("A list of users"),
+	Results:     def.DataErrorResults("A list of users"),
 }
 
 var getUser = def.Definition{
@@ -78,7 +75,7 @@ var getUser = def.Definition{
 		{
 			Source:      def.Query,
 			Name:        "Identifier",
-			Default: 	 "Undefined",
+			Default:     "Undefined",
 			Description: "The id to find the specific user",
 		},
 	},
@@ -94,7 +91,7 @@ var deleteUser = def.Definition{
 		{
 			Source:      def.Query,
 			Name:        "Identifier",
-			Default: 	 "Undefined",
+			Default:     "Undefined",
 			Description: "The id to find the specific user",
 		},
 	},
@@ -110,7 +107,7 @@ var changeInfo = def.Definition{
 		{
 			Source:      def.Query,
 			Name:        "Identifier",
-			Default: 	 "Undefined",
+			Default:     "Undefined",
 			Description: "The id to find the specific user",
 		},
 		{
@@ -119,8 +116,8 @@ var changeInfo = def.Definition{
 			Description: "Name of the user",
 		},
 		{
-			Source:      def.Query,
-			Name:        "Age",
+			Source: def.Query,
+			Name:   "Age",
 			//Default:      -100,
 			Description: "Age of the user",
 		},
